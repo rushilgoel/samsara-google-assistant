@@ -11,7 +11,6 @@ application = Flask(__name__)
 ## Values are hard-coded for a specific group for Rushil Goel
 ## To make this more generic, need to implement OAuth in server & manage more sensor names
 
-SAMSARA_ACCESS_TOKEN = 'XaFrHEbht7o9G934u3lB8wGYtJ93Ra'
 SAMSARA_GROUP_ID = 1154
 SAMSARA_ROOM_SENSOR_ID = 212014918092182
 SAMSARA_FRIDGE_SENSOR_ID = 212014918083943
@@ -48,7 +47,7 @@ def processRequest(req):
 def listSensors():
     client = SamsaraClient()
     try:
-        response = client.get_sensors(SAMSARA_ACCESS_TOKEN, samsara.GroupParam(SAMSARA_GROUP_ID))
+        response = client.get_sensors(os.environ['SAMSARA_ACCESS_TOKEN'], samsara.GroupParam(SAMSARA_GROUP_ID))
     except ApiException as e:
         return {}
 
@@ -81,7 +80,7 @@ def getTemperature(req):
         sensor_id = SAMSARA_ROOM_SENSOR_ID
 
     try:
-        response = client.get_sensors_temperature(SAMSARA_ACCESS_TOKEN, samsara.SensorParam(SAMSARA_GROUP_ID, [sensor_id]))
+        response = client.get_sensors_temperature(os.environ['SAMSARA_ACCESS_TOKEN'], samsara.SensorParam(SAMSARA_GROUP_ID, [sensor_id]))
     except ApiException as e:
         return {}
 
