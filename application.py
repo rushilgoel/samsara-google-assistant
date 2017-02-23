@@ -12,7 +12,7 @@ application = Flask(__name__)
 ## To make this more generic, need to implement OAuth in server & manage more sensor names
 
 SAMSARA_GROUP_ID = 1154
-SAMSARA_ROOM_SENSOR_ID = 212014918092182
+SAMSARA_ROOM_SENSOR_ID = 212014918096236
 SAMSARA_FRIDGE_SENSOR_ID = 212014918083943
 SAMSARA_FREEZER_SENSOR_ID = 212014918083902
 
