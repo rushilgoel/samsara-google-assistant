@@ -103,4 +103,4 @@ if __name__ == '__main__':
         if 'LOCALHOST' in os.environ and os.environ['LOCALHOST'] == '1':
                 application.run('0.0.0.0', use_reloader=False)
         else:
-                application.run('0.0.0.0')
+                application.run('0.0.0.0', port=os.environ['PORT'])
