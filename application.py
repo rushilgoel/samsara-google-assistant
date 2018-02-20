@@ -58,7 +58,6 @@ def listSensors():
 
     speech += "and " + response.sensors[-1].name
 
-    print speech
     return {
         "speech" : speech,
         "displayText" : speech,
